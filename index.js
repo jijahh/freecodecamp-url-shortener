@@ -37,7 +37,7 @@ app.route('/api/shorturl/:id?').get((req, res) => {
   const originalUrl = req.body.url;
   if (dns.lookup(new URL(originalUrl).hostname, (err) => {
     if (err) {
-      res.status(400).json({ error: 'invalid url' });
+      res.json({ error: 'Invalid URL' });
       return;
     }
     const shortUrl = `url${shortUrlId++}`;
